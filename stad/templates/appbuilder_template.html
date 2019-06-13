@@ -1,0 +1,30 @@
+{% extends "appbuilder/base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <div class="container">
+    <h1>{{_("Stad")}}</h1>
+    <p>{{_("Mye first app using F.A.B, bla, bla, bla")}}</p>
+  </div>
+
+    <div>
+        <td>
+            <div class="input-group date appbuilder_datetime" id="datetimepicker">
+            <span class="input-group-addon"><i class="fa fa-calendar cursor-hand"></i>
+            </span>
+                <input class=" filter_val form-control" data-format="yyyy-MM-dd hh:mm:ss" id="last_login" name="_flt_0_last_login" type="text" value="" style="width: 200px">
+            </div>
+        </td>
+    </div>
+
+    <div class="col-md-offset-0">
+          <p><a class="btn btn-primary btn-lg" href="api/v1/example/greeting" role="Run" >Learn more</a>
+          </p>
+        <p>
+            <form action="api/v1/example/greeting2" method="post">
+                <button type="submit" value="Send Email">Run2</button>
+            </form>
+
+        </p>
+    </div>
+</div>
+{% endblock %}
