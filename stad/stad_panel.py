@@ -6,6 +6,7 @@ import panel as pn
 import param as pm
 from fastcache import lru_cache
 import holoviews as hv
+from utils import DatePicker
 
 hv.extension('bokeh')
 pn.extension()
@@ -22,9 +23,9 @@ class StadApp(pm.Parameterized):
     # define interactions
 
     # the number of days to get data for
-    DATE_start = pn.widgets.DatePicker(name='start date', start=START, end=END)
+    DATE_start = DatePicker(name='start date', start=START, end=END)
 
-    DATE_end = pn.widgets.DatePicker(name='end date',start=START, end=END)
+    DATE_end = DatePicker(name='end date',start=START, end=END)
 
     BTN_run = pn.widgets.Button(name='Run')
 
@@ -37,7 +38,7 @@ class StadApp(pm.Parameterized):
 
     @pn.depends("BTN_run.clicks", watch=True)
     def plot_ts(self):
-        print(str(self.DATE_start.value))
+        print(self.DATE_start.value)
         return hv.Curve(np.random.randint(0,10,7)).options(line_color="#cfcfcf")
         # df = self.get_data(self.DATE_start,self.DATE_end)
         # print(df)
